@@ -26,7 +26,6 @@ const submitAllocation = async (req, res) => {
       });
     } else {
       console.log('Google Sheets submission failed:', result.error);
-      // Return success: false but with 200 status so client knows what happened
       res.status(200).json({
         success: false,
         error: result.error,

@@ -10,7 +10,6 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const TimeAllocationForm = ({ user }) => {
-    // const [person, setPerson] = useState('');
     const [person, setPerson] = useState('');
 
     useEffect(() => {
@@ -19,7 +18,6 @@ const TimeAllocationForm = ({ user }) => {
         }
     }, [user]);
 
-    //   const [weekStart, setWeekStart] = useState('');
     const [isSubmitting, setIsSubmitting] = useState(false);
     const { entries, addEntry, removeEntry, updateEntry, clearEntries } = useAllocations();
     const [projects, setProjects] = useState([]);
@@ -89,8 +87,6 @@ const TimeAllocationForm = ({ user }) => {
 
             if (response.success) {
                 toast.success('Submitted successfully!');
-                // setPerson('');
-                // setWeekStart('');
                 clearEntries();
             } else {
                 throw new Error(response.error || 'Submission failed');
@@ -127,15 +123,6 @@ const TimeAllocationForm = ({ user }) => {
                 <div className="form-row">
                     <div className="form-group">
                         <label htmlFor="person">Your Name:</label>
-                        {/* <input
-                            type="text"
-                            id="person"
-                            value={person}
-                            onChange={(e) => setPerson(e.target.value)}
-                            placeholder="Enter your name"
-                            disabled={isSubmitting}
-                            className="form-input"
-                        /> */}
                         <input
                             type="text"
                             id="person"

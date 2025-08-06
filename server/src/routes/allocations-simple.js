@@ -6,7 +6,7 @@ router.post('/', async (req, res) => {
   const result = await googleSheetsService.submitAllocations(req.body);
   res.json(result);
 });
-// Simple inline handlers for testing
+
 router.get('/', (req, res) => {
   res.json({ message: 'Allocations API working' });
 });
@@ -37,7 +37,7 @@ router.get('/allocations', async (req, res) => {
 });
 
 router.get('/read', async (req, res) => {
-    res.setHeader('Cache-Control', 'no-store'); // Disable caching
+    res.setHeader('Cache-Control', 'no-store'); 
   
     try {
       const result = await googleSheetsService.getAllocationsData(); 

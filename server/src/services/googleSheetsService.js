@@ -12,18 +12,7 @@ class GoogleSheetsService {
   async authenticate() {
     try {
       console.log('Authenticating using service account...');
-
-      // const auth = new GoogleAuth({
-      //   keyFile: path.join(__dirname, 'service-account.json'),
-      //   scopes: ['https://www.googleapis.com/auth/spreadsheets'],
-      // });
-      // const auth = new GoogleAuth({
-      //   credentials: JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT_JSON),
-      //   scopes: ['https://www.googleapis.com/auth/spreadsheets'],
-      // });
       const rawCredentials = JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT_JSON);
-
-      // Replace escaped newlines in private_key with actual newlines
       rawCredentials.private_key = rawCredentials.private_key.replace(/\\n/g, '\n');
       console.log('First line of private_key:', rawCredentials.private_key.split('\n')[0]);
       const auth = new GoogleAuth({
@@ -71,7 +60,7 @@ async submitAllocations(data) {
   
       const request = {
         spreadsheetId: this.spreadsheetId,
-        range: 'Allocation Staging!A:F', 
+        range: 'Allocation Live!A:F', 
         valueInputOption: 'RAW',
         resource: { values: rows }
       };
@@ -101,7 +90,7 @@ async submitAllocations(data) {
   
       const response = await this.sheets.spreadsheets.values.get({
         spreadsheetId: this.spreadsheetId,
-        range: 'Projects Staging!A:Z'
+        range: 'Projects Live!A:Z'
       });
   
       const rows = response.data.values || [];
@@ -144,7 +133,7 @@ async submitAllocations(data) {
   
       const response = await this.sheets.spreadsheets.values.get({
         spreadsheetId: this.spreadsheetId,
-        range: 'Allocation Staging!A:F', // Timestamp, weekStart, person, project, manager, hours
+        range: 'Allocation Live!A:F', 
       });
   
       const rows = response.data.values;

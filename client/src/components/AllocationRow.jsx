@@ -7,7 +7,6 @@ const AllocationRow = ({ entry, onUpdate, onRemove, disabled, projectOptions }) 
 
   const options = projectOptions.map(p => ({ value: p.project, label: p.project }));
 
-  // Get selected option object based on current value
   const selectedOption = options.find(opt => opt.value === entry.project) || null;
 
   const handleChange = (selected) => {

@@ -14,7 +14,7 @@ app.use(cors({
     'http://localhost:3000',
     'https://weekly-allocation-staging-production.up.railway.app',
     process.env.FRONTEND_URL
-  ].filter(Boolean), // Remove undefined values
+  ].filter(Boolean), 
   credentials: true,
 }));
 
@@ -43,7 +43,6 @@ app.get('/api/google-auth', (req, res) => {
   res.redirect(authUrl);
 });
 
-// OAuth callback endpoint
 app.get('/api/google-auth/callback', async (req, res) => {
   const { code } = req.query;
   if (!code) return res.status(400).send('Missing code');

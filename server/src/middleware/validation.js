@@ -1,7 +1,6 @@
 const validateAllocation = (req, res, next) => {
   const { person, weekStart, entries } = req.body;
 
-  // Validate person
   if (!person || typeof person !== 'string' || person.trim().length === 0) {
     return res.status(400).json({
       success: false,
@@ -9,7 +8,6 @@ const validateAllocation = (req, res, next) => {
     });
   }
 
-  // Validate weekStart
   if (!weekStart || !isValidDate(weekStart)) {
     return res.status(400).json({
       success: false,
@@ -17,7 +15,6 @@ const validateAllocation = (req, res, next) => {
     });
   }
 
-  // Validate entries
   if (!entries || !Array.isArray(entries) || entries.length === 0) {
     return res.status(400).json({
       success: false,
@@ -25,7 +22,6 @@ const validateAllocation = (req, res, next) => {
     });
   }
 
-  // Validate each entry
   for (let i = 0; i < entries.length; i++) {
     const entry = entries[i];
     
