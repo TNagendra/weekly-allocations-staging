@@ -9,7 +9,7 @@ const port = process.env.PORT || 5000;
 app.use(cors({
   origin: [
     'http://localhost:3000',
-    'https://weeklyallocationstaging.netlify.app',
+    'https://weekly-allocations-prod.netlify.app',
     process.env.FRONTEND_URL
   ].filter(Boolean), // Remove undefined values
   credentials: true
