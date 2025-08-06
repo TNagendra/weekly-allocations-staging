@@ -1,0 +1,86 @@
+.container {
+    padding: 2rem;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #fff;
+    border-radius: 14px;
+    max-width: 1100px;
+    margin: 32px auto;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+  }
+  .heading {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: #385170;
+    letter-spacing: 0.5px;
+  }
+  .filters {
+    display: flex;
+    gap: 20px;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 22px;
+  }
+  .filters label {
+    margin-right: 6px;
+    font-weight: 500;
+    color: #233142;
+  }
+  select, .export-btn {
+    padding: 5px 10px;
+    font-size: 1rem;
+    border-radius: 6px;
+    border: 1px solid #bdbdbd;
+    margin-right: 12px;
+  }
+  .export-btn {
+    background: #40739e;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background 0.18s;
+  }
+  .export-btn:disabled {
+    background: #b2bec3;
+    cursor: not-allowed;
+  }
+  .export-btn:hover:not(:disabled) {
+    background: #273c75;
+  }
+  
+  .allocation-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: #f6f6f6;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+  .allocation-table th,
+  .allocation-table td {
+    padding: 13px 18px;
+    text-align: left;
+    border-bottom: 1px solid #e1eaf7;
+    font-size: 1rem;
+  }
+  .allocation-table th {
+    background-color: #e6eefa;
+    color: #293b5f;
+    font-weight: bold;
+    border-bottom: 2px solid #bfe5fc;
+  }
+  .selected-row {
+    background-color: #daf2ef;
+  }
+  .allocation-table input[type="checkbox"] {
+    zoom: 1.15;
+  }
+  .no-data {
+    text-align: center;
+    padding: 22px;
+    color: #939393;
+    font-size: 1.06rem;
+  }
+  

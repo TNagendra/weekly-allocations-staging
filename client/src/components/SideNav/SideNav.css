@@ -1,0 +1,170 @@
+.side-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    background-color: #fff;
+    border-right: 1px solid #ddd;
+    box-shadow: 2px 0 8px rgba(0,0,0,0.1);
+    padding: 24px 12px;
+    display: flex;
+    flex-direction: column;
+    transition: width 0.3s ease;
+    z-index: 1000;
+    overflow: hidden;
+  }
+  
+  .side-nav.expanded {
+    width: 250px;
+  }
+  
+  .side-nav.collapsed {
+    width: 72px; /* just enough for icons */
+  }
+  
+  /* Sidebar Header */
+  .side-nav-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+  
+  /* User Info hidden when collapsed */
+  .user-info {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 24px;
+  }
+  
+  /* NAV LINKS */
+  .nav-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1; /* push logout to bottom */
+  }
+  
+  .nav-link {
+    display: flex;
+    align-items: center;
+    color: #333;
+    padding: 10px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    margin-bottom: 12px;
+    transition: background-color 0.2s ease;
+    white-space: nowrap;
+  }
+  
+  .nav-link:hover,
+  .nav-link:focus {
+    background-color: #e0e7ff; /* light indigo */
+    color: #4338ca; /* dark indigo */
+    outline: none;
+  }
+  
+  /* active link style */
+  .nav-link.active {
+    background-color: #4338ca;
+    color: white;
+  }
+  
+  /* Icon + Text layout */
+  .nav-icon {
+    width: 24px;
+    min-width: 24px;
+    height: 24px;
+    margin-right: 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+  
+  /* collapsed mode: center icons and hide text */
+  .side-nav.collapsed .nav-link {
+    justify-content: center;
+  }
+  
+  .side-nav.collapsed .nav-icon {
+    margin-right: 0;
+  }
+  
+  .side-nav.collapsed .nav-text {
+    display: none;
+  }
+  
+  /* Logout btn at bottom */
+  .logout-btn {
+    background-color: #ef4444;
+    border: none;
+    color: white;
+    padding: 12px 20px;
+    font-weight: 700;
+    text-align: left;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.2s ease;
+    margin-top: auto;
+  }
+  
+  .logout-btn:hover,
+  .logout-btn:focus {
+    background-color: #dc2626;
+    outline: none;
+  }
+  
+  /* Align logout btn to center icons when collapsed */
+  .side-nav.collapsed .logout-btn {
+    justify-content: center;
+    text-align: center;
+    padding: 12px 0;
+  }
+  
+  .logout-btn .nav-icon {
+    margin-right: 16px;
+  }
+  
+  /* Hide close btn on collapsed mode, optional */
+  .close-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #666;
+  }
+  
+  /* Hamburger menu toggle button */
+  .hamburger-btn {
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1100;
+    padding: 0;
+    color: var(--color-primary);
+    display: none; /* hide by default (desktop) */
+    align-items: center;
+    justify-content: center;
+  }
+  @media (max-width: 768px) {
+    .hamburger-btn {
+      display: flex;
+    }
+  
+    /* Sidebar always expanded on desktop. */
+    /* .side-nav {
+      position: fixed;
+      z-index: 1000;
+      height: 100vh;
+    } */
+  
+    /* Optional: fullscreen overlay with sidebar on mobile */
+  }
+  

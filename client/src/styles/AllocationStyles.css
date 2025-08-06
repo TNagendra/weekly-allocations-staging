@@ -1,0 +1,637 @@
+/* AllocationStyles.css */
+
+/* CSS Variables for consistent theming */
+:root {
+  --primary-color: #4f46e5;
+  --primary-hover: #4338ca;
+  --primary-light: #e0e7ff;
+  --secondary-color: #6b7280;
+  --secondary-hover: #4b5563;
+  --success-color: #10b981;
+  --success-hover: #059669;
+  --danger-color: #ef4444;
+  --danger-hover: #dc2626;
+  --warning-color: #f59e0b;
+  --warning-hover: #d97706;
+  --background-color: #f8fafc;
+  --surface-color: #ffffff;
+  --border-color: #e2e8f0;
+  --text-primary: #1f2937;
+  --text-secondary: #6b7280;
+  --text-light: #9ca3af;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 12px;
+  --spacing-lg: 16px;
+  --spacing-xl: 20px;
+  --spacing-2xl: 24px;
+}
+
+/* Reset and base styles */
+* {
+  box-sizing: border-box;
+}
+
+/* Form container */
+.time-allocation-form {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--spacing-2xl);
+  background-color: var(--background-color);
+  min-height: 100vh;
+}
+
+/* Form header */
+.form-header {
+  text-align: center;
+  margin-bottom: var(--spacing-2xl);
+}
+
+.form-header h2 {
+  color: var(--text-primary);
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 var(--spacing-sm) 0;
+  letter-spacing: -0.025em;
+}
+
+.form-subtitle {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  margin: 0;
+}
+
+/* Form content */
+.form-content {
+  background-color: var(--surface-color);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: var(--spacing-2xl);
+}
+
+/* Form row for side-by-side inputs */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-2xl);
+}
+
+/* Form groups */
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-sm);
+  font-size: 0.875rem;
+}
+
+/* Form inputs */
+.form-input {
+  padding: var(--spacing-md);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  background-color: var(--surface-color);
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px var(--primary-light);
+}
+
+.form-input:disabled {
+  background-color: var(--background-color);
+  color: var(--text-light);
+  cursor: not-allowed;
+}
+
+/* Allocation container */
+.allocation-container {
+  margin: var(--spacing-2xl) 0;
+}
+
+/* Table wrapper for horizontal scroll */
+.table-wrapper {
+  overflow-x: auto;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: var(--spacing-lg);
+}
+
+/* Table styles */
+.allocation-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--surface-color);
+  min-width: 600px;
+}
+
+.allocation-table thead th {
+  background-color: var(--background-color);
+  padding: var(--spacing-md) var(--spacing-lg);
+  text-align: left;
+  font-weight: 600;
+  color: var(--text-primary);
+  border-bottom: 2px solid var(--border-color);
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Table rows */
+.allocation-row {
+  transition: background-color 0.2s ease;
+}
+
+.allocation-row:hover {
+  background-color: var(--background-color);
+}
+
+.allocation-row:last-child .allocation-cell {
+  border-bottom: none;
+}
+
+/* Table cells */
+.allocation-cell {
+  padding: var(--spacing-md);
+  vertical-align: middle;
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* Select wrapper for custom dropdown styling */
+.select-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.select-arrow {
+  position: absolute;
+  top: 50%;
+  right: var(--spacing-md);
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: var(--text-secondary);
+  transition: color 0.2s ease;
+}
+
+.select-wrapper:hover .select-arrow {
+  color: var(--text-primary);
+}
+
+/* Select and input common styles */
+.allocation-select,
+.allocation-input {
+  width: 100%;
+  padding: var(--spacing-md);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  transition: all 0.2s ease;
+  background-color: var(--surface-color);
+}
+
+/* Custom select styling */
+.allocation-select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: none;
+  cursor: pointer;
+  padding-right: 40px;
+}
+
+.allocation-select:focus,
+.allocation-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px var(--primary-light);
+}
+
+.allocation-select:disabled,
+.allocation-input:disabled {
+  background-color: var(--background-color);
+  color: var(--text-light);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Specific input styles */
+.project-select {
+  min-width: 180px;
+}
+
+.type-select {
+  min-width: 120px;
+}
+
+.hours-input {
+  min-width: 100px;
+  text-align: center;
+}
+
+/* Remove number input spinners */
+.hours-input::-webkit-outer-spin-button,
+.hours-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.hours-input[type=number] {
+  -moz-appearance: textfield;
+}
+
+/* Button base styles */
+.primary-button,
+.secondary-button,
+.remove-button,
+.add-row-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md) var(--spacing-lg);
+  border: none;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  min-height: 44px;
+}
+
+/* Primary button */
+.primary-button {
+  background-color: var(--primary-color);
+  color: white;
+  box-shadow: var(--shadow-sm);
+}
+
+.primary-button:hover:not(:disabled) {
+  background-color: var(--primary-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.primary-button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+/* Secondary button */
+.secondary-button {
+  background-color: var(--surface-color);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+}
+
+.secondary-button:hover:not(:disabled) {
+  background-color: var(--background-color);
+  border-color: var(--secondary-color);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Remove button */
+.remove-button {
+  background-color: var(--danger-color);
+  color: white;
+  padding: var(--spacing-sm);
+  min-width: 40px;
+  min-height: 40px;
+}
+
+.remove-button:hover:not(:disabled) {
+  background-color: var(--danger-hover);
+  transform: translateY(-1px);
+}
+
+/* Add row button */
+.add-row-button {
+  background-color: var(--success-color);
+  color: white;
+}
+
+.add-row-button:hover:not(:disabled) {
+  background-color: var(--success-hover);
+  transform: translateY(-1px);
+}
+
+/* Disabled button states */
+.primary-button:disabled,
+.secondary-button:disabled,
+.remove-button:disabled,
+.add-row-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+/* Container for react-select */
+.select-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+/* Table cell adjustments for dropdown */
+.allocation-cell {
+  position: relative;
+  overflow: visible; /* crucial for dropdown to overflow */
+}
+
+/* Minimum width for project select */
+.project-select {
+  min-width: 180px;
+  width: 100%;
+}
+
+/* Responsive widths */
+@media (max-width: 768px) {
+  .project-select {
+    min-width: 140px;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-select {
+    min-width: 120px;
+  }
+}
+
+/* react-select base control style */
+.react-select__control {
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  transition: all 0.2s ease;
+  min-height: 38px;
+  box-shadow: none;
+}
+
+/* react-select focused control style */
+.react-select__control--is-focused {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px var(--primary-light);
+}
+
+/* Dropdown menu style */
+.react-select__menu {
+  z-index: 9999; /* put on top */
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Remove legacy native select styling (if any) */
+.allocation-select {
+  /* No native select styling needed here */
+  background-image: none !important; 
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  padding-right: 0 !important;
+  cursor: pointer;
+}
+
+/* Optional: Remove custom arrow on react-select wrapper */
+.select-arrow {
+  display: none;
+}
+
+/* Button container */
+.button-container {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: var(--spacing-lg);
+}
+
+/* Form actions */
+.form-actions {
+  display: flex;
+  gap: var(--spacing-md);
+  justify-content: flex-end;
+  padding-top: var(--spacing-lg);
+  border-top: 1px solid var(--border-color);
+}
+
+/* Total row styling */
+.total-row {
+  background-color: var(--background-color);
+  font-weight: 600;
+}
+
+.total-row .allocation-cell {
+  border-top: 2px solid var(--border-color);
+  border-bottom: none;
+}
+
+.total-label {
+  text-align: right;
+  color: var(--text-primary);
+}
+
+.total-hours {
+  text-align: center;
+  color: var(--primary-color);
+  font-size: 1.1rem;
+}
+
+/* Loading spinner */
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid transparent;
+  border-top: 2px solid currentColor;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+  .time-allocation-form {
+    padding: var(--spacing-lg);
+  }
+  
+  .form-content {
+    padding: var(--spacing-lg);
+  }
+}
+
+@media (max-width: 768px) {
+  .time-allocation-form {
+    padding: var(--spacing-md);
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+  
+  .form-content {
+    padding: var(--spacing-md);
+  }
+  
+  .form-header h2 {
+    font-size: 1.5rem;
+  }
+  
+  .allocation-cell {
+    padding: var(--spacing-sm);
+  }
+  
+  .allocation-select,
+  .allocation-input {
+    padding: var(--spacing-sm);
+    font-size: 0.875rem;
+  }
+  
+  .project-select {
+    min-width: 140px;
+  }
+  
+  .type-select {
+    min-width: 100px;
+  }
+  
+  .hours-input {
+    min-width: 80px;
+  }
+  
+  .remove-button {
+    min-width: 36px;
+    min-height: 36px;
+    padding: var(--spacing-xs);
+  }
+  
+  .form-actions {
+    flex-direction: column-reverse;
+  }
+  
+  .primary-button,
+  .secondary-button {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .time-allocation-form {
+    padding: var(--spacing-sm);
+  }
+  
+  .form-content {
+    padding: var(--spacing-sm);
+  }
+  
+  .allocation-table thead th {
+    padding: var(--spacing-sm);
+    font-size: 0.75rem;
+  }
+  
+  .allocation-cell {
+    padding: var(--spacing-xs);
+  }
+  
+  .allocation-select,
+  .allocation-input {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: 0.8rem;
+  }
+  
+  .project-select {
+    min-width: 120px;
+  }
+  
+  .type-select {
+    min-width: 80px;
+  }
+  
+  .hours-input {
+    min-width: 60px;
+  }
+  
+  .remove-button {
+    min-width: 32px;
+    min-height: 32px;
+  }
+  
+  .button-container {
+    text-align: center;
+  }
+  
+  .add-row-button {
+    width: 100%;
+  }
+}
+
+/* Print styles */
+@media print {
+  .form-actions,
+  .button-container,
+  .remove-button {
+    display: none;
+  }
+  
+  .time-allocation-form {
+    background-color: white;
+    box-shadow: none;
+  }
+  
+  .allocation-table {
+    box-shadow: none;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --border-color: #000000;
+    --text-secondary: #000000;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+.toast-confirm-btn,
+.toast-cancel-btn {
+  padding: 6px 12px;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.toast-confirm-btn {
+  background-color: #ef4444; /* red */
+  color: white;
+}
+
+.toast-cancel-btn {
+  background-color: #e5e7eb; /* gray */
+  color: black;
+}
