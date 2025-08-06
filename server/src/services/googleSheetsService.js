@@ -17,24 +17,19 @@ class GoogleSheetsService {
       //   keyFile: path.join(__dirname, 'service-account.json'),
       //   scopes: ['https://www.googleapis.com/auth/spreadsheets'],
       // });
-      const keyFilePath = path.join(__dirname, 'config', 'service-account.json');
-      const auth = new GoogleAuth({
-        keyFile: keyFilePath,
-        scopes: ['https://www.googleapis.com/auth/spreadsheets'],
-      });
       // const auth = new GoogleAuth({
       //   credentials: JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT_JSON),
       //   scopes: ['https://www.googleapis.com/auth/spreadsheets'],
       // });
-      // const rawCredentials = JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT_JSON);
+      const rawCredentials = JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT_JSON);
 
-      // // Replace escaped newlines in private_key with actual newlines
-      // rawCredentials.private_key = rawCredentials.private_key.replace(/\\n/g, '\n');
-      // console.log('First line of private_key:', rawCredentials.private_key.split('\n')[0]);
-      // const auth = new GoogleAuth({
-      //   credentials: rawCredentials,
-      //   scopes: ['https://www.googleapis.com/auth/spreadsheets'],
-      // });
+      // Replace escaped newlines in private_key with actual newlines
+      rawCredentials.private_key = rawCredentials.private_key.replace(/\\n/g, '\n');
+      console.log('First line of private_key:', rawCredentials.private_key.split('\n')[0]);
+      const auth = new GoogleAuth({
+        credentials: rawCredentials,
+        scopes: ['https://www.googleapis.com/auth/spreadsheets'],
+      });
 
       const authClient = await auth.getClient();
 
