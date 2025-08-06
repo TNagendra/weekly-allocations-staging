@@ -41,5 +41,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://weekly-allocations-staging-production.up.railway.app"
+  "proxy": "https://weekly-allocation-staging-server-production.up.railway.app"
 }
