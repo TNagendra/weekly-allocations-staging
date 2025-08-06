@@ -176,7 +176,7 @@ const FilterAllocationTable = () => {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await axios.get('/api/allocations/read');
+        const response = await axios.get('https://weekly-allocation-staging-server-production.up.railway.app/api/allocations/read');
         const rawData = response.data;
         console.log('API Response:', response);
         console.log('Raw Data:', rawData);
