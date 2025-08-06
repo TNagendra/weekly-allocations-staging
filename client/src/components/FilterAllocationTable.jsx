@@ -178,7 +178,8 @@ const FilterAllocationTable = () => {
       try {
         const response = await axios.get('/api/allocations/read');
         const rawData = response.data;
-
+        console.log('API Response:', response);
+        console.log('Raw Data:', rawData);
         // Ensure the data is an array
         const data = Array.isArray(rawData) ? rawData : [];
 

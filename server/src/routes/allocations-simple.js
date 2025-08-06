@@ -40,7 +40,8 @@ router.get('/read', async (req, res) => {
     res.setHeader('Cache-Control', 'no-store'); // Disable caching
   
     try {
-      const result = await googleSheetsService.getAllocationsData(); // Use correct function here
+      const result = await googleSheetsService.getAllocationsData(); 
+      console.log('Fetched allocations:', result); 
       if (result.success) {
         res.status(200).json(result.data);
       } else {
