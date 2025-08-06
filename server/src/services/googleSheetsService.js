@@ -71,7 +71,7 @@ async submitAllocations(data) {
   
       const request = {
         spreadsheetId: this.spreadsheetId,
-        range: 'Allocations Staging!A:F', 
+        range: 'Allocation Staging!A:F', 
         valueInputOption: 'RAW',
         resource: { values: rows }
       };
