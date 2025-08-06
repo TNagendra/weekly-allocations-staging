@@ -13,11 +13,15 @@ class GoogleSheetsService {
     try {
       console.log('Authenticating using service account...');
 
+      // const auth = new GoogleAuth({
+      //   keyFile: path.join(__dirname, 'service-account.json'),
+      //   scopes: ['https://www.googleapis.com/auth/spreadsheets'],
+      // });
       const auth = new GoogleAuth({
-        keyFile: path.join(__dirname, 'service-account.json'),
+        credentials: JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT_JSON),
         scopes: ['https://www.googleapis.com/auth/spreadsheets'],
       });
-
+  
       const authClient = await auth.getClient();
 
       this.sheets = google.sheets({ version: 'v4', auth: authClient });
