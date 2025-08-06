@@ -58,7 +58,7 @@ async submitAllocations(data) {
   
       const request = {
         spreadsheetId: this.spreadsheetId,
-        range: 'Allocations!A:F', 
+        range: 'Allocations Staging!A:F', 
         valueInputOption: 'RAW',
         resource: { values: rows }
       };
@@ -88,7 +88,7 @@ async submitAllocations(data) {
   
       const response = await this.sheets.spreadsheets.values.get({
         spreadsheetId: this.spreadsheetId,
-        range: 'Projects!A:Z'
+        range: 'Projects Staging!A:Z'
       });
   
       const rows = response.data.values || [];
@@ -131,7 +131,7 @@ async submitAllocations(data) {
   
       const response = await this.sheets.spreadsheets.values.get({
         spreadsheetId: this.spreadsheetId,
-        range: 'Allocations!A:F', // Timestamp, weekStart, person, project, manager, hours
+        range: 'Allocation Staging!A:F', // Timestamp, weekStart, person, project, manager, hours
       });
   
       const rows = response.data.values;
