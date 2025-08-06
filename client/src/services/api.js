@@ -1,4 +1,4 @@
-const API_BASE_URL ='https://weekly-allocation-staging-server-production.up.railway.app/';
+const API_BASE_URL ='https://weekly-allocation-staging-server-production.up.railway.app';
 // export const submitAllocation = async (data) => {
 //   try {
 //     const response = await fetch(`${API_BASE_URL}/allocations/submit`, {
