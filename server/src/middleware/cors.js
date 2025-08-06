@@ -8,8 +8,8 @@ const corsOptions = {
     const allowedOrigins = [
       'http://localhost:3000',
       'http://127.0.0.1:3000',
-      'https://storied-mousse-1f080b.netlify.app',
-      'https://weekly-allocations-production-2307.up.railway.app',
+      'https://weekly-allocation-staging-production.up.railway.app',
+      'https://weekly-allocation-staging-server-production.up.railway.app',
       process.env.CLIENT_URL,
       process.env.FRONTEND_URL
     ].filter(Boolean);

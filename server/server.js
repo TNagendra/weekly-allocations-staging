@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 5000;
 app.use(cors({
   origin: [
     'http://localhost:3000',
-    'https://storied-mousse-1f080b.netlify.app',
+    'https://weekly-allocation-staging-production.up.railway.app',
     process.env.FRONTEND_URL
   ].filter(Boolean), // Remove undefined values
   credentials: true,

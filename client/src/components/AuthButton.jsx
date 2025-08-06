@@ -5,7 +5,7 @@ export default function AuthButton() {
   const handleLogin = () => {
     // window.location.href = 'http://localhost:5000/api/google-auth';
     // window.location.href = `${API_URL}/api/google-auth`;
-    window.location.href = 'https://weekly-allocations-production-2307.up.railway.app/api/google-auth';
+    window.location.href = 'https://weekly-allocation-staging-server-production.up.railway.app/api/google-auth';
   };
 
   return (
